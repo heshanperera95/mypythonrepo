@@ -1,6 +1,9 @@
-x=-5
-while x<1:
-    print(x)
-    x=x+1
+def add():
+    x=int(input("enter number to multiply : "))
+    y=x*2
+    return x,y
 
-#ok
+
+m,n= add()
+print("num ", m)
+print(n)
