@@ -1,0 +1,57 @@
+class Employee:
+
+    raise_amount=1.04  #class variable
+
+    def __init__(self,first,last,pay):
+        self.first=first
+        self.last=last
+        self.pay=pay
+        self.email=first + "." + last + "@virtusa.com"
+
+    def fullname(self):
+        fullnames = "{} {}".format(self.first,self.last)
+        return fullnames
+    
+    def apply_raise(self):
+        self.pay=int(self.pay*self.raise_amount)
+
+    @classmethod      #class method
+    def set_raise_amt(cls,amount):
+        cls.raise_amount=amount
+
+
+emp_1=Employee("sanath","Perera", 50000)
+emp_2=Employee('amal','peries',60000)
+
+
+
+print("-------initial print-------------")
+
+print(emp_1.first)
+print(emp_1.email)
+print(emp_1.fullname())
+
+print(emp_2.first)
+print(emp_2.email)
+print(emp_2.fullname())
+
+print(Employee.fullname(emp_2))
+
+print ("---------class variables---------")
+
+emp_1.raise_amount=1.05
+
+print(Employee.raise_amount)
+print(emp_1.raise_amount)
+print(emp_2.raise_amount)
+
+
+print("---------class method----------")
+
+
+Employee.set_raise_amt(1.06)    #this is similar to Employee.raise_amount = 1.06
+
+print(Employee.raise_amount)
+print(emp_1.raise_amount)
+print(emp_2.raise_amount)
+

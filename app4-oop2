@@ -1,0 +1,38 @@
+##Inheritance - Creating Subclasses
+
+class Employee:
+
+    raise_amount=1.04  #class variable
+
+    def __init__(self,first,last,pay):
+        self.first=first
+        self.last=last
+        self.pay=pay
+        self.email=first + "." + last + "@virtusa.com"
+
+    def fullname(self):
+        fullnames = "{} {}".format(self.first,self.last)
+        return fullnames
+    
+    def apply_raise(self):
+        self.pay=int(self.pay*self.raise_amount)
+
+    @classmethod      #class method
+    def set_raise_amt(cls,amount):
+        cls.raise_amount=amount
+
+
+class Developer(Employee):
+    raise_amount=1.10
+
+    def __init__(self, first, last, pay,pro_lan):
+        super().__init__(first, last, pay)
+        self.pro_lan = pro_lan
+
+
+dev_1=Developer("sanath","Perera", 50000,'Python')
+dev_2=Developer('amal','peries',60000,'Java')
+
+print(dev_1.email)
+print(dev_1.pro_lan)
+
